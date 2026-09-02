@@ -4,7 +4,7 @@
   <Version>1.0.0.3</Version>
   <ProviderName>Cognivance</ProviderName>
   <DefaultLocale>en-US</DefaultLocale>
-  <DisplayName DefaultValue="Secure Transfers"/>
+  <DisplayName DefaultValue="ST_File Transfers"/>
   <Description DefaultValue="A file Transfer add-in."/>
   <IconUrl DefaultValue="https://localhost:8444/assets/ST-64x64.png"/>
   <HighResolutionIconUrl DefaultValue="https://localhost:8444/assets/ST-128x128.png"/>
@@ -115,9 +115,9 @@
     </Hosts>
     <Resources>
       <bt:Images>
-        <bt:Image id="Icon.16x16" DefaultValue="https://localhost:8444/assets/ST-16x16.png"/>
-        <bt:Image id="Icon.32x32" DefaultValue="https://localhost:8444/assets/ST-32x32.png"/>
-        <bt:Image id="Icon.80x80" DefaultValue="https://localhost:8444/assets/ST-80x80.png"/>
+        <bt:Image id="Icon.16" DefaultValue="https://localhost:8444/assets/ST-16x16.png"/>
+        <bt:Image id="Icon.32" DefaultValue="https://localhost:8444/assets/ST-32x32.png"/>
+        <bt:Image id="Icon.80" DefaultValue="https://localhost:8444/assets/ST-80x80.png"/>
       </bt:Images>
       <bt:Urls>
         <bt:Url id="Taskpane.Url"
@@ -130,10 +130,11 @@
                 DefaultValue="https://localhost:8444/outlook/commands.html"/>
       </bt:Urls>
       <bt:ShortStrings>
+        <bt:String id="GroupLabel" DefaultValue="Secure Transfer"/>
         <bt:String id="Menu.Label" DefaultValue="Secure Transfer"/>
         <bt:String id="SelectFile.Label" DefaultValue="Select Local File"/>
         <bt:String id="OpenPane.Label" DefaultValue="Open Task Pane"/>
-        </bt:ShortStrings>
+      </bt:ShortStrings>
       <bt:LongStrings>
         <bt:String id="Menu.Description"
                    DefaultValue="Secure file transfer tools"/>
