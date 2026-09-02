@@ -4,7 +4,7 @@
   <Version>1.0.0.4</Version>
   <ProviderName>Cognivance</ProviderName>
   <DefaultLocale>en-US</DefaultLocale>
-  <DisplayName DefaultValue="ST_File Transfers"/>
+  <DisplayName DefaultValue="ST_File Transfers V1"/>
   <Description DefaultValue="A file Transfer add-in."/>
   <IconUrl DefaultValue="https://localhost:8444/outlook/assets/ST-64x64.png"/>
   <HighResolutionIconUrl DefaultValue="https://localhost:8444/outlook/assets/ST-128x128.png"/>
