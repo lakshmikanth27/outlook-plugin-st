@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <OfficeApp xmlns="http://schemas.microsoft.com/office/appforoffice/1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bt="http://schemas.microsoft.com/office/officeappbasictypes/1.0" xmlns:mailappor="http://schemas.microsoft.com/office/mailappversionoverrides/1.0" xsi:type="MailApp">
   <Id>1636d60d-998e-468b-91c2-35bff7c8a4af</Id>
-  <Version>1.0.0.4</Version>
+  <Version>1.0.0.5</Version>
   <ProviderName>Cognivance</ProviderName>
   <DefaultLocale>en-US</DefaultLocale>
-  <DisplayName DefaultValue="ST_File Transfers V1"/>
+  <DisplayName DefaultValue="ST_File Transfers V2"/>
   <Description DefaultValue="A file Transfer add-in."/>
   <IconUrl DefaultValue="https://localhost:8444/outlook/assets/ST-64x64.png"/>
   <HighResolutionIconUrl DefaultValue="https://localhost:8444/outlook/assets/ST-128x128.png"/>
@@ -69,8 +69,8 @@
                     <bt:Image size="80" resid="Icon.80"/>
                   </Icon>
 
-                  <Action xsi:type="ShowTaskpane">
-                    <SourceLocation resid="Taskpane.Select.Url"/>
+                  <Action xsi:type="ExecuteFunction">
+                    <FunctionName>openFilePicker</FunctionName>
                   </Action>
                 </Control>
 
