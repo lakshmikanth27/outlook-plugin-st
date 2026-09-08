@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <OfficeApp xmlns="http://schemas.microsoft.com/office/appforoffice/1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bt="http://schemas.microsoft.com/office/officeappbasictypes/1.0" xmlns:mailappor="http://schemas.microsoft.com/office/mailappversionoverrides/1.0" xsi:type="MailApp">
   <Id>1636d60d-998e-468b-91c2-35bff7c8a4af</Id>
-  <Version>1.0.0.5</Version>
+  <Version>1.0.0.6</Version>
   <ProviderName>Cognivance</ProviderName>
   <DefaultLocale>en-US</DefaultLocale>
-  <DisplayName DefaultValue="ST_File Transfers V2"/>
+  <DisplayName DefaultValue="ST_File Transfers V3"/>
   <Description DefaultValue="A file Transfer add-in."/>
   <IconUrl DefaultValue="https://localhost:8444/outlook/assets/ST-64x64.png"/>
   <HighResolutionIconUrl DefaultValue="https://localhost:8444/outlook/assets/ST-128x128.png"/>
@@ -24,7 +24,7 @@
   <FormSettings>
   <Form xsi:type="ItemEdit">
     <DesktopSettings>
-      <SourceLocation DefaultValue="https://localhost:8444/outlook/taskpane.html"/>
+      <SourceLocation DefaultValue="https://localhost:8444/outlook/attach.html"/>
     </DesktopSettings>
   </Form>
 </FormSettings>
@@ -54,7 +54,6 @@
               <Group id="msgComposeGroup">
                 <Label resid="GroupLabel"/>
 
-                <!-- Button 1 -->
                 <Control xsi:type="Button" id="SelectLocalFile">
                   <Label resid="SelectFile.Label"/>
 
@@ -74,13 +73,12 @@
                   </Action>
                 </Control>
 
-                <!-- Button 2 -->
-                <Control xsi:type="Button" id="OpenTaskPane">
-                  <Label resid="OpenPane.Label"/>
+                <Control xsi:type="Button" id="RequestLogin">
+                  <Label resid="RequestLogin.Label"/>
 
                   <Supertip>
-                    <Title resid="OpenPane.Label"/>
-                    <Description resid="OpenPane.Description"/>
+                    <Title resid="RequestLogin.Label"/>
+                    <Description resid="RequestLogin.Description"/>
                   </Supertip>
 
                   <Icon>
@@ -89,8 +87,8 @@
                     <bt:Image size="80" resid="Icon.80"/>
                   </Icon>
 
-                  <Action xsi:type="ShowTaskpane">
-                    <SourceLocation resid="Taskpane.Url"/>
+                  <Action xsi:type="ExecuteFunction">
+                    <FunctionName>openRequestLogin</FunctionName>
                   </Action>
                 </Control>
 
@@ -107,30 +105,24 @@
         <bt:Image id="Icon.80" DefaultValue="https://localhost:8444/outlook/assets/ST-80x80.png"/>
       </bt:Images>
       <bt:Urls>
-        <bt:Url id="Taskpane.Url"
-                DefaultValue="https://localhost:8444/outlook/taskpane.html"/>
-
-        <bt:Url id="Taskpane.Select.Url"
-                DefaultValue="https://localhost:8444/outlook/taskpane.html?mode=select"/>
-
         <bt:Url id="Commands.Url"
                 DefaultValue="https://localhost:8444/outlook/commands.html"/>
       </bt:Urls>
       <bt:ShortStrings>
-        <bt:String id="GroupLabel" DefaultValue="Secure Transfer"/>
-        <bt:String id="Menu.Label" DefaultValue="Secure Transfer"/>
-        <bt:String id="SelectFile.Label" DefaultValue="Select Local File"/>
-        <bt:String id="OpenPane.Label" DefaultValue="Open Task Pane"/>
+        <bt:String id="GroupLabel" DefaultValue="ST File Transfers"/>
+        <bt:String id="Menu.Label" DefaultValue="ST File Transfers"/>
+        <bt:String id="SelectFile.Label" DefaultValue="Attach"/>
+        <bt:String id="RequestLogin.Label" DefaultValue="Request Login"/>
       </bt:ShortStrings>
       <bt:LongStrings>
         <bt:String id="Menu.Description"
                    DefaultValue="Secure file transfer tools"/>
 
         <bt:String id="SelectFile.Description"
-                   DefaultValue="Choose a local file and generate a secure download link."/>
+                   DefaultValue="Attach local or online files and insert a secure download link."/>
 
-        <bt:String id="OpenPane.Description"
-                   DefaultValue="Open the Secure Transfer task pane."/>
+        <bt:String id="RequestLogin.Description"
+                   DefaultValue="Open a Secure Transfers login request for this message."/>
       </bt:LongStrings>
     </Resources>
    </VersionOverrides>
