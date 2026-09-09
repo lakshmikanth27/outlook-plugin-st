@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <OfficeApp xmlns="http://schemas.microsoft.com/office/appforoffice/1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bt="http://schemas.microsoft.com/office/officeappbasictypes/1.0" xmlns:mailappor="http://schemas.microsoft.com/office/mailappversionoverrides/1.0" xsi:type="MailApp">
   <Id>1636d60d-998e-468b-91c2-35bff7c8a4af</Id>
-  <Version>1.0.0.6</Version>
+  <Version>1.1.0.0</Version>
   <ProviderName>Cognivance</ProviderName>
   <DefaultLocale>en-US</DefaultLocale>
-  <DisplayName DefaultValue="ST_File Transfers V3"/>
+  <DisplayName DefaultValue="Secure Transfers V4"/>
   <Description DefaultValue="A file Transfer add-in."/>
   <IconUrl DefaultValue="https://localhost:8444/outlook/assets/ST-64x64.png"/>
   <HighResolutionIconUrl DefaultValue="https://localhost:8444/outlook/assets/ST-128x128.png"/>
@@ -54,44 +54,56 @@
               <Group id="msgComposeGroup">
                 <Label resid="GroupLabel"/>
 
-                <Control xsi:type="Button" id="SelectLocalFile">
-                  <Label resid="SelectFile.Label"/>
+                <Control xsi:type="Menu" id="SecureTransferMenu">
+                <Label resid="Menu.Label"/>
 
-                  <Supertip>
-                    <Title resid="SelectFile.Label"/>
-                    <Description resid="SelectFile.Description"/>
-                  </Supertip>
+                <Supertip>
+                  <Title resid="Menu.Label"/>
+                  <Description resid="Menu.Description"/>
+                </Supertip>
 
-                  <Icon>
-                    <bt:Image size="16" resid="Icon.16"/>
-                    <bt:Image size="32" resid="Icon.32"/>
-                    <bt:Image size="80" resid="Icon.80"/>
-                  </Icon>
+                <Icon>
+                  <bt:Image size="16" resid="Icon.16"/>
+                  <bt:Image size="32" resid="Icon.32"/>
+                  <bt:Image size="80" resid="Icon.80"/>
+                </Icon>
 
-                  <Action xsi:type="ExecuteFunction">
-                    <FunctionName>openFilePicker</FunctionName>
-                  </Action>
-                </Control>
+                <Items>
 
-                <Control xsi:type="Button" id="RequestLogin">
-                  <Label resid="RequestLogin.Label"/>
+                  <Item id="Menu.Attach">
+                    <Label resid="SelectFile.Label"/>
+                    <Supertip>
+                      <Title resid="SelectFile.Label"/>
+                      <Description resid="SelectFile.Description"/>
+                    </Supertip>
+                    <Icon>
+                      <bt:Image size="16" resid="Icon.16"/>
+                      <bt:Image size="32" resid="Icon.32"/>
+                      <bt:Image size="80" resid="Icon.80"/>
+                    </Icon>
+                    <Action xsi:type="ExecuteFunction">
+                      <FunctionName>openFilePicker</FunctionName>
+                    </Action>
+                  </Item>
 
-                  <Supertip>
-                    <Title resid="RequestLogin.Label"/>
-                    <Description resid="RequestLogin.Description"/>
-                  </Supertip>
+                  <Item id="Menu.RequestLogin">
+                    <Label resid="RequestLogin.Label"/>
+                    <Supertip>
+                      <Title resid="RequestLogin.Label"/>
+                      <Description resid="RequestLogin.Description"/>
+                    </Supertip>
+                    <Icon>
+                      <bt:Image size="16" resid="Icon.16"/>
+                      <bt:Image size="32" resid="Icon.32"/>
+                      <bt:Image size="80" resid="Icon.80"/>
+                    </Icon>
+                    <Action xsi:type="ExecuteFunction">
+                      <FunctionName>openRequestLogin</FunctionName>
+                    </Action>
+                  </Item>
 
-                  <Icon>
-                    <bt:Image size="16" resid="Icon.16"/>
-                    <bt:Image size="32" resid="Icon.32"/>
-                    <bt:Image size="80" resid="Icon.80"/>
-                  </Icon>
-
-                  <Action xsi:type="ExecuteFunction">
-                    <FunctionName>openRequestLogin</FunctionName>
-                  </Action>
-                </Control>
-
+                </Items>
+              </Control>
               </Group>
             </OfficeTab>
           </ExtensionPoint>
@@ -109,10 +121,11 @@
                 DefaultValue="https://localhost:8444/outlook/commands.html"/>
       </bt:Urls>
       <bt:ShortStrings>
-        <bt:String id="GroupLabel" DefaultValue="ST File Transfers"/>
+        <bt:String id="GroupLabel" DefaultValue="Secure Transfers"/>
         <bt:String id="Menu.Label" DefaultValue="ST File Transfers"/>
         <bt:String id="SelectFile.Label" DefaultValue="Attach"/>
         <bt:String id="RequestLogin.Label" DefaultValue="Request Login"/>
+        <bt:String id="Settings.Label" DefaultValue="Settings"/>
       </bt:ShortStrings>
       <bt:LongStrings>
         <bt:String id="Menu.Description"
@@ -123,6 +136,8 @@
 
         <bt:String id="RequestLogin.Description"
                    DefaultValue="Open a Secure Transfers login request for this message."/>
+        <bt:String id="Settings.Description"
+                    DefaultValue="Configure Secure Transfer preferences."/>
       </bt:LongStrings>
     </Resources>
    </VersionOverrides>
