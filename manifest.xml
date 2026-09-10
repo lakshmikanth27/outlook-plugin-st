@@ -1,145 +1,184 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<OfficeApp xmlns="http://schemas.microsoft.com/office/appforoffice/1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bt="http://schemas.microsoft.com/office/officeappbasictypes/1.0" xmlns:mailappor="http://schemas.microsoft.com/office/mailappversionoverrides/1.0" xsi:type="MailApp">
+<OfficeApp xmlns="http://schemas.microsoft.com/office/appforoffice/1.1"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xmlns:bt="http://schemas.microsoft.com/office/officeappbasictypes/1.0"
+           xmlns:mailappor="http://schemas.microsoft.com/office/mailappversionoverrides/1.0"
+           xsi:type="MailApp">
+
   <Id>1636d60d-998e-468b-91c2-35bff7c8a4af</Id>
-  <Version>1.1.0.0</Version>
+  <Version>1.1.0.2</Version>
   <ProviderName>Cognivance</ProviderName>
   <DefaultLocale>en-US</DefaultLocale>
-  <DisplayName DefaultValue="Secure Transfers V4"/>
+
+  <DisplayName DefaultValue="Secure Transfers V5"/>
   <Description DefaultValue="A file Transfer add-in."/>
+
   <IconUrl DefaultValue="https://localhost:8444/outlook/assets/ST-64x64.png"/>
   <HighResolutionIconUrl DefaultValue="https://localhost:8444/outlook/assets/ST-128x128.png"/>
   <SupportUrl DefaultValue="https://www.cognivance.com/lets-connect"/>
+
   <AppDomains>
     <AppDomain>https://www.cognivance.com</AppDomain>
     <AppDomain>https://localhost:8444</AppDomain>
-</AppDomains>
+  </AppDomains>
+
   <Hosts>
     <Host Name="Mailbox"/>
   </Hosts>
+
   <Requirements>
     <Sets>
       <Set Name="Mailbox" MinVersion="1.1"/>
     </Sets>
   </Requirements>
+
   <FormSettings>
-  <Form xsi:type="ItemEdit">
-    <DesktopSettings>
-      <SourceLocation DefaultValue="https://localhost:8444/outlook/attach.html"/>
-    </DesktopSettings>
-  </Form>
-</FormSettings>
+    <Form xsi:type="ItemEdit">
+      <DesktopSettings>
+        <SourceLocation DefaultValue="https://localhost:8444/outlook/attach.html"/>
+      </DesktopSettings>
+    </Form>
+  </FormSettings>
+
   <Permissions>ReadWriteItem</Permissions>
+
   <Rule xsi:type="RuleCollection" Mode="Or">
     <Rule xsi:type="ItemIs" ItemType="Message" FormType="Edit"/>
   </Rule>
+
   <DisableEntityHighlighting>false</DisableEntityHighlighting>
-  <VersionOverrides
-    xmlns="http://schemas.microsoft.com/office/mailappversionoverrides"
-    xsi:type="VersionOverridesV1_0">
 
-  <VersionOverrides
-      xmlns="http://schemas.microsoft.com/office/mailappversionoverrides/1.1"
-      xsi:type="VersionOverridesV1_1">
-    <Requirements>
-      <bt:Sets DefaultMinVersion="1.3">
-        <bt:Set Name="Mailbox" MinVersion="1.5"/>
-      </bt:Sets>
-    </Requirements>
-    <Hosts>
-      <Host xsi:type="MailHost">
-        <DesktopFormFactor>
-          <FunctionFile resid="Commands.Url"/>
-          <ExtensionPoint xsi:type="MessageComposeCommandSurface">
-            <OfficeTab id="TabDefault">
-              <Group id="msgComposeGroup">
-                <Label resid="GroupLabel"/>
+  <VersionOverrides xmlns="http://schemas.microsoft.com/office/mailappversionoverrides"
+                    xsi:type="VersionOverridesV1_0">
 
-                <Control xsi:type="Menu" id="SecureTransferMenu">
-                <Label resid="Menu.Label"/>
+    <VersionOverrides xmlns="http://schemas.microsoft.com/office/mailappversionoverrides/1.1"
+                      xsi:type="VersionOverridesV1_1">
 
-                <Supertip>
-                  <Title resid="Menu.Label"/>
-                  <Description resid="Menu.Description"/>
-                </Supertip>
+      <Requirements>
+        <bt:Sets DefaultMinVersion="1.3">
+          <bt:Set Name="Mailbox" MinVersion="1.5"/>
+        </bt:Sets>
+      </Requirements>
 
-                <Icon>
-                  <bt:Image size="16" resid="Icon.16"/>
-                  <bt:Image size="32" resid="Icon.32"/>
-                  <bt:Image size="80" resid="Icon.80"/>
-                </Icon>
+      <Hosts>
+        <Host xsi:type="MailHost">
+          <DesktopFormFactor>
+            <ExtensionPoint xsi:type="MessageComposeCommandSurface">
+              <OfficeTab id="TabDefault">
 
-                <Items>
+                <Group id="msgComposeGroup">
+                  <Label resid="GroupLabel"/>
 
-                  <Item id="Menu.Attach">
-                    <Label resid="SelectFile.Label"/>
+                  <Control xsi:type="Menu" id="SecureTransferMenu">
+                    <Label resid="Menu.Label"/>
+
                     <Supertip>
-                      <Title resid="SelectFile.Label"/>
-                      <Description resid="SelectFile.Description"/>
+                      <Title resid="Menu.Label"/>
+                      <Description resid="Menu.Description"/>
                     </Supertip>
+
                     <Icon>
                       <bt:Image size="16" resid="Icon.16"/>
                       <bt:Image size="32" resid="Icon.32"/>
                       <bt:Image size="80" resid="Icon.80"/>
                     </Icon>
-                    <Action xsi:type="ExecuteFunction">
-                      <FunctionName>openFilePicker</FunctionName>
-                    </Action>
-                  </Item>
 
-                  <Item id="Menu.RequestLogin">
-                    <Label resid="RequestLogin.Label"/>
-                    <Supertip>
-                      <Title resid="RequestLogin.Label"/>
-                      <Description resid="RequestLogin.Description"/>
-                    </Supertip>
-                    <Icon>
-                      <bt:Image size="16" resid="Icon.16"/>
-                      <bt:Image size="32" resid="Icon.32"/>
-                      <bt:Image size="80" resid="Icon.80"/>
-                    </Icon>
-                    <Action xsi:type="ExecuteFunction">
-                      <FunctionName>openRequestLogin</FunctionName>
-                    </Action>
-                  </Item>
+                    <Items>
 
-                </Items>
-              </Control>
-              </Group>
-            </OfficeTab>
-          </ExtensionPoint>
-        </DesktopFormFactor>
-      </Host>
-    </Hosts>
-    <Resources>
-      <bt:Images>
-        <bt:Image id="Icon.16" DefaultValue="https://localhost:8444/outlook/assets/ST-16x16.png"/>
-        <bt:Image id="Icon.32" DefaultValue="https://localhost:8444/outlook/assets/ST-32x32.png"/>
-        <bt:Image id="Icon.80" DefaultValue="https://localhost:8444/outlook/assets/ST-80x80.png"/>
-      </bt:Images>
-      <bt:Urls>
-        <bt:Url id="Commands.Url"
-                DefaultValue="https://localhost:8444/outlook/commands.html"/>
-      </bt:Urls>
-      <bt:ShortStrings>
-        <bt:String id="GroupLabel" DefaultValue="Secure Transfers"/>
-        <bt:String id="Menu.Label" DefaultValue="ST File Transfers"/>
-        <bt:String id="SelectFile.Label" DefaultValue="Attach"/>
-        <bt:String id="RequestLogin.Label" DefaultValue="Request Login"/>
-        <bt:String id="Settings.Label" DefaultValue="Settings"/>
-      </bt:ShortStrings>
-      <bt:LongStrings>
-        <bt:String id="Menu.Description"
-                   DefaultValue="Secure file transfer tools"/>
+                      <!-- ATTACH -->
+                      <Item id="Menu.Attach">
+                        <Label resid="SelectFile.Label"/>
 
-        <bt:String id="SelectFile.Description"
-                   DefaultValue="Attach local or online files and insert a secure download link."/>
+                        <Supertip>
+                          <Title resid="SelectFile.Label"/>
+                          <Description resid="SelectFile.Description"/>
+                        </Supertip>
 
-        <bt:String id="RequestLogin.Description"
-                   DefaultValue="Open a Secure Transfers login request for this message."/>
-        <bt:String id="Settings.Description"
-                    DefaultValue="Configure Secure Transfer preferences."/>
-      </bt:LongStrings>
-    </Resources>
-   </VersionOverrides>
-</VersionOverrides>
+                        <Icon>
+                          <bt:Image size="16" resid="Icon.16"/>
+                          <bt:Image size="32" resid="Icon.32"/>
+                          <bt:Image size="80" resid="Icon.80"/>
+                        </Icon>
+
+                        <Action xsi:type="ShowTaskpane">
+                          <SourceLocation resid="Attach.Url"/>
+                        </Action>
+                      </Item>
+
+                      <!-- REQUEST LOGIN -->
+                      <Item id="Menu.RequestLogin">
+                        <Label resid="RequestLogin.Label"/>
+
+                        <Supertip>
+                          <Title resid="RequestLogin.Label"/>
+                          <Description resid="RequestLogin.Description"/>
+                        </Supertip>
+
+                        <Icon>
+                          <bt:Image size="16" resid="Icon.16"/>
+                          <bt:Image size="32" resid="Icon.32"/>
+                          <bt:Image size="80" resid="Icon.80"/>
+                        </Icon>
+
+                        <Action xsi:type="ShowTaskpane">
+                          <SourceLocation resid="Login.Url"/>
+                        </Action>
+                      </Item>
+
+                    </Items>
+                  </Control>
+
+                </Group>
+              </OfficeTab>
+            </ExtensionPoint>
+
+          </DesktopFormFactor>
+        </Host>
+      </Hosts>
+
+      <Resources>
+
+        <bt:Images>
+          <bt:Image id="Icon.16" DefaultValue="https://localhost:8444/outlook/assets/ST-16x16.png"/>
+          <bt:Image id="Icon.32" DefaultValue="https://localhost:8444/outlook/assets/ST-32x32.png"/>
+          <bt:Image id="Icon.80" DefaultValue="https://localhost:8444/outlook/assets/ST-80x80.png"/>
+        </bt:Images>
+
+        <bt:Urls>
+  <bt:Url
+      id="Attach.Url"
+      DefaultValue="https://localhost:8444/outlook/attach.html"/>
+
+  <bt:Url
+      id="Login.Url"
+      DefaultValue="https://localhost:8444/outlook/login.html"/>
+</bt:Urls>
+
+        <bt:ShortStrings>
+          <bt:String id="GroupLabel" DefaultValue="Secure Transfers"/>
+          <bt:String id="Menu.Label" DefaultValue="ST File Transfers"/>
+          <bt:String id="SelectFile.Label" DefaultValue="Attach"/>
+          <bt:String id="RequestLogin.Label" DefaultValue="Request Login"/>
+          <bt:String id="Settings.Label" DefaultValue="Settings"/>
+        </bt:ShortStrings>
+
+        <bt:LongStrings>
+          <bt:String id="Menu.Description"
+                     DefaultValue="Secure file transfer tools"/>
+
+          <bt:String id="SelectFile.Description"
+                     DefaultValue="Attach local or online files and insert a secure download link."/>
+
+          <bt:String id="RequestLogin.Description"
+                     DefaultValue="Open a Secure Transfers login request for this message."/>
+
+          <bt:String id="Settings.Description"
+                     DefaultValue="Configure Secure Transfer preferences."/>
+        </bt:LongStrings>
+
+      </Resources>
+
+    </VersionOverrides>
+  </VersionOverrides>
+
 </OfficeApp>
