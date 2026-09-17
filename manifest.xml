@@ -5,7 +5,7 @@
            xsi:type="MailApp">
 
   <Id>1636d60d-998e-468b-91c2-35bff7c8a4af</Id>
-  <Version>1.1.0.2</Version>
+  <Version>1.1.0.3</Version>
   <ProviderName>Cognivance</ProviderName>
   <DefaultLocale>en-US</DefaultLocale>
 
